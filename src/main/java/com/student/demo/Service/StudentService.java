@@ -1,0 +1,19 @@
+package com.student.demo.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.student.demo.Repo.StudentRepository;
+import com.student.demo.model.Student;
+
+@Service
+public class StudentService {
+
+	@Autowired
+	StudentRepository studentRepository;
+
+	public Student saveStudent(Student student) {
+		return studentRepository.save(student);
+	}
+
+}
