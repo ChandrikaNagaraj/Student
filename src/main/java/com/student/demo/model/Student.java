@@ -8,19 +8,26 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+
 public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true )
+	@OneToMany(cascade = CascadeType.ALL,  orphanRemoval = true )
 	@JoinColumn(name = "student_id") // This creates a student_id column in the Course table
-	private List<Course> courses;
+	private List<Course> courses = new ArrayList<>();
+
+	public Student() {
+		
+	}
 
 	// Getters and Setters
 	public Long getId() {

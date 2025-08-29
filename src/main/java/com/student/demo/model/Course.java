@@ -20,7 +20,13 @@ public class Course {
  Student ob;
  
  
- public Course(Long id, String title, Student ob) {
+ 
+
+public Course() {
+	
+}
+
+public Course(Long id, String title, Student ob) {
 	super();
 	this.id = id;
 	this.title = title;
