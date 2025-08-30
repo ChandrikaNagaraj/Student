@@ -10,43 +10,39 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Course {
- @Id
- @GeneratedValue(strategy = GenerationType.IDENTITY)
- private Long id;
- private String title;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String title;
 
- @ManyToOne(cascade = CascadeType.ALL)
- @JoinColumn(name = "student_id")
- Student ob;
- 
- 
- 
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "student_id")
+	private Student student;
 
-public Course() {
-	
-}
+	public Course() {
 
-public Course(Long id, String title, Student ob) {
-	super();
-	this.id = id;
-	this.title = title;
-	this.ob = ob;
-}
+	}
+
+	public Course(Long id, String title, Student ob) {
+		this.id=id;
+		this.title = title;
+		this.student = ob;
+	}
 
 // Getters and Setters
- public Long getId() {
-     return id;
- }
+	public Long getId() {
+		return id;
+	}
 
- public void setId(Long id) {
-     this.id = id;
- }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
- public String getTitle() {
-     return title;
- }
+	public String getTitle() {
+		return title;
+	}
 
- public void setTitle(String title) {
-     this.title = title;
- }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 }

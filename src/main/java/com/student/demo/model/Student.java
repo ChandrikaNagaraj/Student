@@ -1,6 +1,9 @@
 // Student Entity Class
 package com.student.demo.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,13 +11,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-
 public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +25,12 @@ public class Student {
 
 	public Student() {
 		
+	}
+
+	public Student(Long id, String name, List<Course> courses) {
+		this.id = id;
+		this.name = name;
+		this.courses = courses;
 	}
 
 	// Getters and Setters

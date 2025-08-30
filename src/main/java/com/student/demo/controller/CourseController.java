@@ -24,11 +24,12 @@ public class CourseController {
 	public ResponseEntity<Course> save(@RequestBody Course course) {
 		return courseService.Save(course);
 	}
-	
+
 	@GetMapping("getAll")
 	public List<Course> getAll() {
-		return courseService.findAll();
-		
+		List<Course> courseList = courseService.findAll();
+		System.out.println(courseList);
+		return courseList;
 	}
 
 }
